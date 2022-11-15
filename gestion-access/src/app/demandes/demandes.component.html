@@ -1,0 +1,61 @@
+
+<app-navbar></app-navbar>
+
+
+<div class="container mt-2">
+  <ng-container *ngIf="demandes">
+    <div class="card" >
+
+      <div class="card-header">Demandes</div>
+
+        <table class="table">
+          <thead>
+          <tr>
+            <th>TYPE</th><th>Date</th><th>badgeType</th><th>demandeur</th><th>ORGANISME</th><th>DOCUMENTS</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let d of demandes ">
+            <td>{{d.type}}</td>
+            <td>{{d.date | date: 'shortDate' }}</td>
+            <td >{{d.badgeType}}</td>
+            <td>{{d.demandeurDto.cin}}</td>
+            <td>{{d.demandeurDto.organisme}}</td>
+            <td>
+              <button (click)= "dowloadZip(d.id)"class="btn btn-info">
+
+                 download
+              </button>
+            </td>
+            <td>
+              <button (click)="updateAccepte(d.id)" class="btn btn-outline-primary">
+                ACCEPTER
+              </button>
+            </td>
+            <td>
+              <button class="btn btn-outline-primary">
+               REJETER
+              </button>
+            </td>
+
+          </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+  </ng-container>
+<!--  <ng-template #failureOrLoading >-->
+<!--    <ng-container *ngIf="errorMesssage ; else loading">-->
+<!--      <div class = "text-danger">-->
+<!--        {{errorMesssage}}-->
+<!--      </div>-->
+<!--    </ng-container>-->
+<!--    <ng-template #loading>-->
+<!--      Loading....-->
+<!--    </ng-template>-->
+
+<!--  </ng-template>-->
+
+
+</div>

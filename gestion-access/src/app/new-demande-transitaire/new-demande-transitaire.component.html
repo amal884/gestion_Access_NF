@@ -1,0 +1,151 @@
+
+<app-navbar></app-navbar>
+
+
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-expand-lg bg-body">
+
+  <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Nouvelle Demande : Transitaire </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+          aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+    <ul class="navbar-nav flex-grow-2">
+
+      <li class="nav-item">
+        <a class="nav-link text-danger"></a>
+      </li>
+
+    </ul>
+
+
+  </div>
+
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="mt-5" >
+  <div class="row">
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+      <label>Cin <span class="text-danger">*</span></label>
+      <input type="text" class="form-control" placeholder="Cin" formControlName="cin" required>
+      <!--      <small class="form-text text-danger" *ngIf="f.name.errors.required">-->
+      <!--        Name is required</small>-->
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+
+      <label>Nom <span class="text-danger">*</span></label>
+      <input type="text" class="form-control" placeholder="Nom" formControlName="nom">
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+      <label>Prenom <span class="text-danger">*</span></label>
+      <input type="text" class="form-control" placeholder="Prenom" formControlName="prenom">
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+      <label>Adresse <span class="text-danger">*</span></label>
+      <input type="text" class="form-control" placeholder="Adresse" formControlName="adresse">
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+      <label>Email <span class="text-danger">*</span></label>
+      <input type="text" class="form-control" placeholder="Email" formControlName="email">
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+      <label>telephone <span class="text-danger">*</span></label>
+      <input type="text" class="form-control" placeholder="telephone" formControlName="telephone">
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+      <label>organisme<span class="text-danger">*</span> </label>
+      <input type="text" class="form-control" placeholder="organisme" formControlName="organisme">
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+      <label>Photo <span class="text-danger">*</span></label>
+      <input  type="file" class="form-control" (change)="onFileChangePhoto($event)">
+      <!--      <small class="form-text text-danger" *ngIf="f.file.errors.required">-->
+      <!--        Name is required</small>-->
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+      <label>cinFront <span class="text-danger">*</span></label>
+      <input  type="file" class="form-control" (change)="onFileChangecinFront($event)">
+      <!--      <small class="form-text text-danger" *ngIf="f.file.errors.required">-->
+      <!--        Name is required</small>-->
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+      <label>cinBack <span class="text-danger">*</span></label>
+      <input  type="file" class="form-control" (change)="onFileChangecinBack($event)">
+      <!--      <small class="form-text text-danger" *ngIf="f.file.errors.required">-->
+      <!--        Name is required</small>-->
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+      <label>marcheFront <span class="text-danger">*</span></label>
+      <input  type="file" class="form-control" (change)="onFileChangemarcheFront($event)">
+      <!--      <small class="form-text text-danger" *ngIf="f.file.errors.required">-->
+      <!--        Name is required</small>-->
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+      <label>marcheBack <span class="text-danger">*</span></label>
+      <input  type="file" class="form-control" (change)="onFileChangemarcheBack($event)">
+      <!--      <small class="form-text text-danger" *ngIf="f.file.errors.required">-->
+      <!--        Name is required</small>-->
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+      <label>marcheDure <span class="text-danger">*</span></label>
+      <input  type="file" class="form-control" (change)="onFileChangemarcheDure($event)">
+      <!--      <small class="form-text text-danger" *ngIf="f.file.errors.required">-->
+      <!--        Name is required</small>-->
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+      <label>cnss <span class="text-danger">*</span></label>
+      <input  type="file" class="form-control" (change)="onFileChangecnss($event)">
+      <!--      <small class="form-text text-danger" *ngIf="f.file.errors.required">-->
+      <!--        Name is required</small>-->
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+      <label>demandeAccess <span class="text-danger">*</span></label>
+      <input  type="file" class="form-control" (change)="onFileChangedemandeAccess($event)">
+      <!--      <small class="form-text text-danger" *ngIf="f.file.errors.required">-->
+      <!--        Name is required</small>-->
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+      <label>dim <span class="text-danger">*</span></label>
+      <input  type="file" class="form-control" (change)="onFileChangedim($event)">
+      <!--      <small class="form-text text-danger" *ngIf="f.file.errors.required">-->
+      <!--        Name is required</small>-->
+    </div>
+    <div class="form-check form-check-inline" *ngFor="let zone of zones;let i = index">
+      <label>
+        <input type="checkbox" [value]="zone.value"  (change)="onCheckChange($event)"  >{{zone.name}}
+      </label>
+      <!--      <mat-checkbox formControlName="SOMAPORT">SOMAPORT</mat-checkbox>-->
+      <!--      <mat-checkbox formControlName="MARSAMAROC">MARSAMAROC</mat-checkbox>-->
+      <!--      <mat-checkbox formControlName="PORTNET">PORTNET</mat-checkbox>-->
+      <!--      <mat-checkbox formControlName="MASSCEREALES">MASSCEREALES</mat-checkbox>-->
+      <!--      <mat-checkbox formControlName="ONCF">ONCF</mat-checkbox>-->
+      <!--      <mat-checkbox formControlName="OCP">OCP</mat-checkbox>-->
+      <!--      <mat-checkbox formControlName="TC3">TC3</mat-checkbox>-->
+      <!--      <mat-checkbox formControlName="DGSN">DGSN</mat-checkbox>-->
+      <!--      <mat-checkbox formControlName="PROTECTIONCIVIL">PROTECTIONCIVIL</mat-checkbox>-->
+      <!--      <mat-checkbox formControlName="ONSA">ONSA</mat-checkbox>-->
+      <!--      <mat-checkbox formControlName="CHANTIERNAVAL">CHANTIERNAVAL</mat-checkbox>-->
+      <!--      <mat-checkbox formControlName="MOULAYYOUSSEF">MOULAYYOUSSEF</mat-checkbox>-->
+    </div>
+
+  </div>
+  <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+

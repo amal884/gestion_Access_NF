@@ -1,0 +1,108 @@
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+      <label>Cin <span class="text-danger">*</span></label>
+      <input type="text" class="form-control" placeholder="Cin" formControlName="cin" required>
+<!--      <small class="form-text text-danger" *ngIf="f.name.errors.required">-->
+<!--        Name is required</small>-->
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+      <label>Nom </label>
+      <input type="text" class="form-control" placeholder="Nom" formControlName="nom">
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+      <label>Prenom</label>
+      <input type="text" class="form-control" placeholder="Prenom" formControlName="prenom">
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+      <label>Adresse </label>
+      <input type="text" class="form-control" placeholder="Adresse" formControlName="adresse">
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+      <label>Email </label>
+      <input type="text" class="form-control" placeholder="Email" formControlName="email">
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+      <label>telephone </label>
+      <input type="text" class="form-control" placeholder="telephone" formControlName="telephone">
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+      <label>organisme </label>
+      <input type="text" class="form-control" placeholder="organisme" formControlName="organisme">
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+      <label>Photo</label>
+      <input  type="file" class="form-control" (change)="onFileChangePhoto($event)">
+<!--      <small class="form-text text-danger" *ngIf="f.file.errors.required">-->
+<!--        Name is required</small>-->
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+      <label>cinFront</label>
+      <input  type="file" class="form-control" (change)="onFileChangecinFront($event)">
+      <!--      <small class="form-text text-danger" *ngIf="f.file.errors.required">-->
+      <!--        Name is required</small>-->
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+      <label>cinBack</label>
+      <input  type="file" class="form-control" (change)="onFileChangecinBack($event)">
+      <!--      <small class="form-text text-danger" *ngIf="f.file.errors.required">-->
+      <!--        Name is required</small>-->
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+      <label>marcheFront</label>
+      <input  type="file" class="form-control" (change)="onFileChangemarcheFront($event)">
+      <!--      <small class="form-text text-danger" *ngIf="f.file.errors.required">-->
+      <!--        Name is required</small>-->
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+      <label>marcheBack</label>
+      <input  type="file" class="form-control" (change)="onFileChangemarcheBack($event)">
+      <!--      <small class="form-text text-danger" *ngIf="f.file.errors.required">-->
+      <!--        Name is required</small>-->
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+      <label>marcheDure</label>
+      <input  type="file" class="form-control" (change)="onFileChangemarcheDure($event)">
+      <!--      <small class="form-text text-danger" *ngIf="f.file.errors.required">-->
+      <!--        Name is required</small>-->
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+      <label>cnss</label>
+      <input  type="file" class="form-control" (change)="onFileChangecnss($event)">
+      <!--      <small class="form-text text-danger" *ngIf="f.file.errors.required">-->
+      <!--        Name is required</small>-->
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+      <label>demandeAccess</label>
+      <input  type="file" class="form-control" (change)="onFileChangedemandeAccess($event)">
+      <!--      <small class="form-text text-danger" *ngIf="f.file.errors.required">-->
+      <!--        Name is required</small>-->
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+      <label>carteGrise</label>
+      <input  type="file" class="form-control" (change)="onFileChangecarteGrise($event)">
+      <!--      <small class="form-text text-danger" *ngIf="f.file.errors.required">-->
+      <!--        Name is required</small>-->
+    </div>
+    <div class="form-check form-check-inline" *ngFor="let zone of zones;let i = index">
+     <label>
+      <input type="checkbox" [value]="zone.value"  (change)="onCheckChange($event)"  >{{zone.name}}
+     </label>
+<!--      <mat-checkbox formControlName="SOMAPORT">SOMAPORT</mat-checkbox>-->
+<!--      <mat-checkbox formControlName="MARSAMAROC">MARSAMAROC</mat-checkbox>-->
+<!--      <mat-checkbox formControlName="PORTNET">PORTNET</mat-checkbox>-->
+<!--      <mat-checkbox formControlName="MASSCEREALES">MASSCEREALES</mat-checkbox>-->
+<!--      <mat-checkbox formControlName="ONCF">ONCF</mat-checkbox>-->
+<!--      <mat-checkbox formControlName="OCP">OCP</mat-checkbox>-->
+<!--      <mat-checkbox formControlName="TC3">TC3</mat-checkbox>-->
+<!--      <mat-checkbox formControlName="DGSN">DGSN</mat-checkbox>-->
+<!--      <mat-checkbox formControlName="PROTECTIONCIVIL">PROTECTIONCIVIL</mat-checkbox>-->
+<!--      <mat-checkbox formControlName="ONSA">ONSA</mat-checkbox>-->
+<!--      <mat-checkbox formControlName="CHANTIERNAVAL">CHANTIERNAVAL</mat-checkbox>-->
+<!--      <mat-checkbox formControlName="MOULAYYOUSSEF">MOULAYYOUSSEF</mat-checkbox>-->
+    </div>
+
+  </div>
+  <button class="btn btn-primary" type="submit">Submit</button>
+</form>

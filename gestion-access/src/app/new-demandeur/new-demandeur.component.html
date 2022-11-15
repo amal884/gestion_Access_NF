@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="card col-md-6 offset-3 mt-2">
+    <div class="card-header">Nouveau Demandeur </div>
+      <div class="card-body">
+        <form [formGroup]="newDemandeurFormGroup" (ngSubmit)="handleSaveDemandeur()">
+          <div class="mb-3">
+            <label class="form-label">cin:</label>
+            <input type="text" formControlName="cin" class="form-control">
+            <span class="text-danger"
+                  *ngIf="newDemandeurFormGroup.controls['cin'].touched && newDemandeurFormGroup.controls['cin'].errors
+                   && newDemandeurFormGroup.controls['cin'].errors!['required']">
+              cin is requierd
+            </span>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">nom:</label>
+            <input type="text" formControlName="nom" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">prenom:</label>
+            <input type="text" formControlName="prenom" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">adresse:</label>
+            <input type="text" formControlName="adresse" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">email:</label>
+            <input type="text" formControlName="email" class="form-control">
+            <span class="text-danger"
+                  *ngIf="newDemandeurFormGroup.controls['email'].touched && newDemandeurFormGroup.controls['email'].errors
+                   && newDemandeurFormGroup.controls['email'].errors!['email']">
+              email is not valid
+            </span>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">telephone:</label>
+            <input type="text" formControlName="telephone" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">organisme:</label>
+            <input type="text" formControlName="organisme" class="form-control">
+          </div>
+          <button [disabled] ="!newDemandeurFormGroup.valid" class="btn btn-info">Save</button>
+        </form>
+      </div>
+    </div>
+
+</div>

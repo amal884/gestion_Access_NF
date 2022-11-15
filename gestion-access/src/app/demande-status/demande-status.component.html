@@ -1,0 +1,57 @@
+<app-navbar></app-navbar>
+
+
+
+<div class="container mt-2  mt-5">
+  <ng-container *ngIf="demandes">
+    <div class="card" >
+
+      <div class="card-header">Demande</div>
+
+      <table class="table">
+        <thead>
+        <tr>
+          <th>TYPE</th><th>Date</th><th>badgeType</th><th>ORGANISME</th><th>Etat</th><th>Badge</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let d of demandes ">
+          <td>{{d.type}}</td>
+          <td>{{d.date | date: 'shortDate'}}</td>
+          <td>{{d.badgeType}}</td>
+          <td>{{d.demandeurDto.organisme}}</td>
+          <td>{{d.demandeStatus}}</td>
+
+          <td *ngIf="d.demandeStatus=='ACCEPTE'">
+
+            <button (click)= "downloadBadge(d.id)"class="btn btn-info">
+
+              download
+            </button>
+
+          </td>
+
+
+
+
+        </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+  </ng-container>
+  <!--  <ng-template #failureOrLoading >-->
+  <!--    <ng-container *ngIf="errorMesssage ; else loading">-->
+  <!--      <div class = "text-danger">-->
+  <!--        {{errorMesssage}}-->
+  <!--      </div>-->
+  <!--    </ng-container>-->
+  <!--    <ng-template #loading>-->
+  <!--      Loading....-->
+  <!--    </ng-template>-->
+
+  <!--  </ng-template>-->
+
+
+</div>

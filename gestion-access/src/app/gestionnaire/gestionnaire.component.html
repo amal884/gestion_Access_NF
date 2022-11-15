@@ -1,0 +1,58 @@
+<div class="container mt-2">
+  <ng-container *ngIf="gestionnaire | async as listCustomers ; else failureOrLoading">
+    <div class="card" >
+
+      <div class="card-header">Gestionnaires</div>
+      <div class="card-body">
+        <div *ngIf="searchFormGroup">
+          <form [formGroup]="searchFormGroup" (ngSubmit)="handleSearchGestionnaire()">
+            <div class ="input-group">
+              <label class="input-group-text">keyword:</label>
+              <input type="text" formControlName="keyword" class="form-control">
+              <button class="btn btn-info">
+                <i class="bi bi-search"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <table class="table">
+          <thead>
+          <tr>
+            <th>NOM</th><th>PRENOM</th><th>ADRESSE</th><th>EMAIL</th><th>TELEPHONE</th><th>ZONE</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let d of gestionnaire | async">
+            <td>{{d.nom}}</td>
+            <td>{{d.prenom}}</td>
+            <td>{{d.adresse}}</td>
+            <td>{{d.email}}</td>
+            <td>{{d.telephone}}</td>
+            <td>{{d.zone}}</td>
+            <td>
+              <button (click)= "handleDeleteGestionnaire(d)" class="btn btn-danger">
+                <i class="bi bi-trash"></i>
+              </button>
+            </td>
+          </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #failureOrLoading >
+    <ng-container *ngIf="errorMesssage ; else loading">
+      <div class = "text-danger">
+        {{errorMesssage}}
+      </div>
+    </ng-container>
+    <ng-template #loading>
+      Loading....
+    </ng-template>
+
+  </ng-template>
+
+
+</div>

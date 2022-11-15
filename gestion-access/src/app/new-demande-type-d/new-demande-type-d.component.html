@@ -1,0 +1,96 @@
+
+<app-navbar></app-navbar>
+
+
+<div class="container">
+  <div class="row mb-2 mt-2 text-center">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <h5>Demander Votre Badge</h5>
+      <!--      <small *ngIf="titleAction$ | async as title">{{ title }}</small>-->
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
+</div>
+
+
+<!-- nav bar -->
+<nav class="navbar navbar-expand-md breadcrumb mb-3"  >
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <div class="nav nav-pills mb-5">
+      <!--        <a class="nav-item nav-link active ml-1" (click)="changeTitle('Users')" data-toggle="tab" href="#users">-->
+      <!--          <i class="fa fa-users"></i>-->
+      <!--          Users-->
+      <!--        </a>-->
+      <a [hidden]="!isAdmin" class="nav-item nav-link ml-3" (click)="changeTitle('Settings')" data-toggle="tab" href="#reset-password">
+        <i class="fa fa-cogs"></i>
+        Settings
+      </a>
+      <a class="nav-item nav-link move-right mr-3" (click)="changeTitle('Profile')" data-toggle="tab" href="#profile">
+        Welcome, {{user?.firstName}}
+        <i class="fa fa-user"></i>
+      </a>
+    </div>
+
+  </div>
+</nav>
+
+<div class="tab-content mt-3" id="myTabContent"  >
+  <div class="container bg-light">
+    <div class="col-md-12 text-center">
+      <button type="button" class="btn btn-primary" >Demander Un Badge</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="container mt-5  d-flex justify-content-center mt-5" id="myTabContent1" >
+<form [formGroup]="demandeurType" (ngSubmit)="onSubmitDem()">
+  <div class="form-check">
+    <input
+      class = "form-check-input"
+      id="PERSONNE"
+      type="radio"
+      value="PERSONNE"
+      name="demandeurT"
+      formControlName="demandeurT"
+    />
+    <label class = "form-check-label" for="PERSONNE">Personne</label>
+  </div>
+  <div class="form-check">
+    <input
+      class = "form-check-input"
+      id="TRANSITAIRE"
+      type="radio"
+      value="TRANSITAIRE"
+      name="demandeurT"
+      formControlName="demandeurT"
+    />
+    <label class = "form-check-label" for="TRANSITAIRE">Transitaire</label>
+  </div>
+
+  <div class="form-check">
+    <input
+      class = "form-check-input"
+      id="ENGIIN"
+      type="radio"
+      value="ENGIIN"
+      name="demandeurT"
+      formControlName="demandeurT"
+    />
+    <label class = "form-check-label" for="ENGIIN">Engins</label>
+  </div>
+  <!-- Showing error method -->
+  <!--  <div *ngIf="isSubmitted && myForm.errors?.['required']">-->
+  <!--    <p>Please select either value</p>-->
+  <!--  </div>-->
+  <div class="d-flex justify-content-center mt-5">
+  <button type="submit">Suivant</button>
+  </div>
+</form>
+</div>

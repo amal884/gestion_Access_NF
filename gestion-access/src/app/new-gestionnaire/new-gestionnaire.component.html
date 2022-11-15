@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="card col-md-6 offset-3 mt-2">
+    <div class="card-header">Nouveau Gestionnaire </div>
+    <div class="card-body">
+      <form [formGroup]="newGestionnaireFormGroup" (ngSubmit)="handleSaveGesetionnaire()">
+        <div class="mb-3">
+          <label class="form-label">nom:</label>
+          <input type="text" formControlName="nom" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">prenom:</label>
+          <input type="text" formControlName="prenom" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">adresse:</label>
+          <input type="text" formControlName="adresse" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">email:</label>
+          <input type="text" formControlName="email" class="form-control">
+          <span class="text-danger"
+                *ngIf="newGestionnaireFormGroup.controls['email'].touched && newGestionnaireFormGroup.controls['email'].errors
+                   && newGestionnaireFormGroup.controls['email'].errors!['email']">
+              email is not valid
+            </span>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">telephone:</label>
+          <input type="text" formControlName="telephone" class="form-control">
+        </div>
+        <div class="mb-3">
+          <select
+            class="custom-select mb-3"
+            (change)="changeZone($event)"
+            formControlName="zone"
+          >
+            <option value="">Choose Zone</option>
+            <option *ngFor="let zone of zones" [ngValue]="zone">
+              {{ zone }}
+            </option>
+          </select>
+          <!-- error block -->
+          <div class="invalid-feedback" *ngIf="zone?.invalid">
+            <sup>*</sup>Please provide zone name</div>
+<!--          </div>-->
+<!--          <button type="submit" class="btn btn-danger btn-lg btn-block">-->
+<!--            Submit-->
+<!--          </button>-->
+<!--        </div>-->
+        <button [disabled] ="newGestionnaireFormGroup.valid" class="btn btn-info">Save</button>
+
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+</div>
